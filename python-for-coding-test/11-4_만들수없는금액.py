@@ -5,9 +5,14 @@
 
 n = int(input()) # 동전의 갯수 입력
 data = list(map(int,input().split())) # 동전의 종류 입력
-data = sorted(data) # 오름차순 정렬
-# 1 1 2 3 9
-result = 1
-count = data[0]
+data.sort()
 
-# result 가 합쳐진 값에 != 면 답
+target = 1
+for x in data:
+    # 만들 수 없는 금액을 찾았을 때 반복 종료
+    if target < x:
+        break
+    target += x
+
+# 만들 수 없는 금액 출력
+print(target)
