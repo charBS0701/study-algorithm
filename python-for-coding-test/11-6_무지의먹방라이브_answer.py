@@ -25,7 +25,7 @@ import heapq
 
 def solution(food_times, k):
     # 전체 음식을 먹는 시간보다 k가 크거나 같다면 -1
-    if sum(food__times) <= k:
+    if sum(food_times) <= k:
         return -1
 
     # 시간이 작은 음식부터 빼야 하므로 우선순위 큐를 이용
@@ -42,7 +42,7 @@ def solution(food_times, k):
     # sum_value + (현재의 음식 시간 - 이전 음식 시간) * 현재 음식 개수와 k 비교
     while sum_value + ((q[0][0] - previous) * length) <= k:
         now = heapq.heappop(q)[0]
-        sum_value += (noew - previous) * length
+        sum_value += (now - previous) * length
         length -= 1 # 다 먹은 음식 제외
         previous = now # 이전 음식 시간 재설정
 
