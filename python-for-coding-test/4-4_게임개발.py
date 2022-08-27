@@ -60,3 +60,6 @@ while True:
 
     
 print(visit_count)
+
+# 오류 발견
+# 뒤로 한칸 이동하는것 구현안했음
