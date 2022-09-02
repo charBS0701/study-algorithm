@@ -13,7 +13,7 @@ def rotate_a_matrix_by_90_degree(a):
 
 # 자물쇠의 중간 부분이 모두 1인지 확인
 def check(new_lock):
-    lock_length = len(new_lock) # 3
+    lock_length = len(new_lock) // 3
     for i in range(lock_length, lock_length * 2):
         for j in range(lock_length, lock_length * 2):
             if new_lock[i][j] != 1:
@@ -43,7 +43,7 @@ def solution(key, lock):
                 if check(new_lock) == True:
                     return True
                 # 자물쇠에서 열쇠를 다시 빼기
-                    for i in range(m):
-                        for j in range(m):
-                            new_lock[x+i][y+j] += key[i][j]
+                for i in range(m):
+                    for j in range(m):
+                        new_lock[x+i][y+j] -= key[i][j]
     return False
