@@ -8,4 +8,4 @@ data = input() # 문자열 입력
 
 print(solution(data))
 
-# 모르겠다 ~
+# 모르겠다 ~~
