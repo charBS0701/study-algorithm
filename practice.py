@@ -1,21 +1,27 @@
-from collections import deque
+n, m = map(int, input().split())
 
-# 큐(Queue) 구현을 위해 deque 라이브러리 사용
-queue = deque()
+graph = []
+for i in range(n):
+    graph.append(list(map(int,input())))
 
-# 삽입(5) - 삽입(2) - 삽입(3) - 삽입(7) - 삭제() - 삽입(1) - 삽입(4) - 삭제()
-queue.append(5)
-queue.append(2)
-queue.append(3)
-queue.append(7)
-queue.popleft()
-queue.append(1)
-queue.append(4)
-queue.popleft()
+def dfs(x,y):
+    # 주어진 범위를 벗어나면 종료
+    if x < 0 or y < 0 or x >= n or y >= m:
+        return False
+    # 현재 노드를 아직 방문하지 않았다면
+    if graph[x][y] == 0:
+        graph[x][y] = 1
+        dfs(x-1,y)
+        dfs(x+1,y)
+        dfs(x,y-1)
+        dfs(x,y+1)
+        return True
+    return False
 
-print(queue)  # 먼저 들어온 순서대로 출력
-queue.reverse()  # 다음 출력을 위해 역순으로 바꾸기
-print(queue) # 나중에 들어온 원소부터 출력
+result = 0
+for i in range(n):
+    for j in range(m):
+        if dfs(i,j) == True:
+            result += 1
 
-a = list(queue)
-print(a)
+print(result)
