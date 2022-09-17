@@ -22,6 +22,7 @@ def bfs(x,y):
     # 큐가 빌때까지 반복
     while queue:
         x, y = queue.popleft()
+        visit[x][y] = 1
         # 현재 위치에서 두 방향으로 확인
         for i in range(2):
             nx = x + dx[i] * board[x][y]
@@ -29,9 +30,13 @@ def bfs(x,y):
             # 맵을 벗어난 경우
             if nx >= n or ny >= n:
                 continue
+            # 목적지인 경우
             elif board[nx][ny] == -1:
                 print("HaruHaru")
                 return
+            # 이미 방문한 곳일 경우
+            elif visit[nx][ny] == 1:
+                continue
             else:
                 queue.append((nx,ny))
     
