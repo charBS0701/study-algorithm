@@ -29,6 +29,6 @@ def solution(s):
     
     return answer
     
-print(solution("one4seveneight")
-print(solution("23four5six7")
-print(solution("123")
+print(solution("one4seveneight"))
+print(solution("23four5six7"))
+print(solution("123"))
